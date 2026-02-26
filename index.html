@@ -67,28 +67,37 @@
 
   <script>
     // 暫時用簡單 JS 模擬登入（之後加 Firebase）
-    function login() {
-      const email = document.getElementById('email').value;
-      const password = document.getElementById('password').value;
-      if (email && password) {
-        document.getElementById('user-name').innerText = email.split('@')[0];
-        document.getElementById('login-section').style.display = 'none';
-        document.getElementById('dashboard').style.display = 'block';
-      } else {
-        alert('請輸入電郵同密碼！');
-      }
-    }
+   / 指定允許嘅帳戶清單（你可以加多幾個）
+const allowedAccounts = [
+  { email: "testing", password: "123456", name: "SB" },
+  { email: "wonghtholden@gmail.com", password: "123456", name: "Holden" },
+  { email: "terrihui@gmail.com", password: "terri106", name: "Terri" }
+  // 加多個就複製一行，加 , 隔開
+];
 
-    function signup() {
-      alert('註冊功能之後加，先用登入試下啦！');
-    }
+// 登入功能（檢查指定帳戶）
+function login() {
+  const email = document.getElementById('email').value.trim();
+  const password = document.getElementById('password').value.trim();
 
-    function logout() {
-      document.getElementById('dashboard').style.display = 'none';
-      document.getElementById('login-section').style.display = 'block';
-      document.getElementById('email').value = '';
-      document.getElementById('password').value = '';
-    }
+  if (!email || !password) {
+    showAlert('錯誤', '請輸入電郵和密碼！', 'error');
+    return;
+  }
+
+  // 檢查是否在允許清單內
+  const user = allowedAccounts.find(acc => acc.email === email && acc.password === password);
+
+  if (user) {
+    // 登入成功
+    document.getElementById('user-name').innerText = user.name;
+    document.getElementById('login-section').style.display = 'none';
+    document.getElementById('dashboard').style.display = 'block';
+    showAlert('成功', 歡迎回來，${user.name}！, 'success');
+  } else {
+    showAlert('錯誤', '帳號或密碼錯誤，或未獲授權！', 'error');
+  }
+}
   </script>
 </body>
 </html>
