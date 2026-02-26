@@ -119,14 +119,13 @@
   </div>
 
   <script>
-    // 每個帳號 對應 不同名字 + 不同進度 + 不同上堂時間
     const allowedAccounts = [
       { 
         email: "testing", 
         password: "123456", 
         name: "SB",
-        progress: "中文生字仲有七個未背熟",
-        dateList: "28/2 星期六 9AM"
+        progress: "中英文生字仲有七萬個未背熟",
+        dateList: "父母已經放棄你，唔使再補習"
       },
       { 
         email: "wonghtholden@gmail.com", 
@@ -151,7 +150,6 @@
       }
     ];
 
-    // 登入
     function login() {
       const email = document.getElementById('email').value.trim();
       const password = document.getElementById('password').value.trim();
@@ -166,7 +164,6 @@
       );
 
       if (user) {
-        // 自動根據帳號顯示 不同內容
         document.getElementById("user-name").textContent = user.name;
         document.getElementById("progress").textContent = user.progress;
         document.getElementById("dateList").textContent = user.dateList;
@@ -179,7 +176,6 @@
       }
     }
 
-    // 登出
     function logout() {
       document.getElementById('login-section').style.display = 'block';
       document.getElementById('dashboard').style.display = 'none';
