@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>歡迎花子先生門生</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: white;
+      min-height: 100vh;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .container {
+      background: rgba(255,255,255,0.1);
+      padding: 40px;
+      border-radius: 15px;
+      text-align: center;
+      max-width: 400px;
+    }
+    input, button {
+      display: block;
+      width: 100%;
+      margin: 15px 0;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+    button {
+      background: #4CAF50;
+      color: white;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #45a049;
+    }
+    #dashboard {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>花子先生門生學習之門</h1>
+    
+    <!-- 登入前 -->
+    <div id="login-section">
+      <input type="email" id="email" placeholder="輸入你的電郵" required>
+      <input type="password" id="password" placeholder="輸入密碼" required>
+      <button onclick="login()">登入</button>
+      <button onclick="signup()">註冊新帳號</button>
+    </div>
+    
+    <!-- 登入後 -->
+    <div id="dashboard">
+      <h2>歡迎回來，<span id="user-name"></span>！</h2>
+      <p>你的課程進度： <span id="progress">80% 已完成</span></p>
+      <p>下堂課：小六數學 - 星期六 9:00 AM</p>
+      <button onclick="logout()">登出</button>
+    </div>
+  </div>
+
+  <script>
+    // 暫時用簡單 JS 模擬登入（之後加 Firebase）
+    function login() {
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+      if (email && password) {
+        document.getElementById('user-name').innerText = email.split('@')[0];
+        document.getElementById('login-section').style.display = 'none';
+        document.getElementById('dashboard').style.display = 'block';
+      } else {
+        alert('請輸入電郵同密碼！');
+      }
+    }
+
+    function signup() {
+      alert('註冊功能之後加，先用登入試下啦！');
+    }
+
+    function logout() {
+      document.getElementById('dashboard').style.display = 'none';
+      document.getElementById('login-section').style.display = 'block';
+      document.getElementById('email').value = '';
+      document.getElementById('password').value = '';
+    }
+  </script>
+</body>
+</html>
