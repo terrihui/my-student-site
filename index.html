@@ -76,12 +76,21 @@ const allowedAccounts = [
 ];
 
 // 登入功能（檢查指定帳戶）
+// 指定允許嘅帳戶清單（你可以加多幾個）
+const allowedAccounts = [
+  { email: "testing", password: "123456", name: "SB" },
+  { email: "wonghtholden@gmail.com", password: "123456", name: "Holden" },
+  { email: "terrihui@gmail.com", password: "terri106", name: "Terri" }
+  // 加多個就複製一行，加 , 隔開
+];
+
+// 登入功能（檢查指定帳戶）
 function login() {
   const email = document.getElementById('email').value.trim();
   const password = document.getElementById('password').value.trim();
 
   if (!email || !password) {
-    showAlert('錯誤', '請輸入電郵和密碼！', 'error');
+    alert('請輸入電郵和密碼！');
     return;
   }
 
@@ -93,9 +102,9 @@ function login() {
     document.getElementById('user-name').innerText = user.name;
     document.getElementById('login-section').style.display = 'none';
     document.getElementById('dashboard').style.display = 'block';
-    showAlert('成功', 歡迎回來，${user.name}！, 'success');
+    alert(`歡迎回來，${user.name}！`);
   } else {
-    showAlert('錯誤', '帳號或密碼錯誤，或未獲授權！', 'error');
+    alert('帳號或密碼錯誤，或未獲授權！');
   }
 }
   </script>
