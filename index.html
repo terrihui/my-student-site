@@ -112,8 +112,8 @@
     <div id="dashboard">
       <h2>歡迎回來，<span id="user-name"></span>！</h2>
       <p>你的課程進度：<span id="progress"></span></p>
-      <p>下堂課：28/2 星期六 9AM</p>
-      <p>請檢查所有中文閱讀理解已經完成改正</p>
+      <p>下堂課：<span id="date list"></span></p>
+      <p>請檢查所有功課已經完成改正</p>
       <button onclick="logout()">登出</button>
     </div>
   </div>
@@ -132,18 +132,20 @@
         password: "123456", 
         name: "Holden",
         progress: "英文單詞已全部掌握"
+        date list: "28/2 星期六 9AM"
       },
       { 
         email: "carlostang921@gmail.com", 
         password: "11111", 
         name: "Carlos",
-        progress: "數學練習還有2頁未完成"
+        progress: "數學練習每日五題未完成"
+        date list: "28/2 星期六 11AM"
       },
       { 
         email: "terrihui@gmail.com", 
         password: "terri106", 
         name: "Terri",
-        progress: "全科作業已齊晒，淨係欠默書"
+        progress: "你仲有大把嘢未處理"
       }
     ];
 
