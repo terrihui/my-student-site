@@ -112,40 +112,42 @@
     <div id="dashboard">
       <h2>歡迎回來，<span id="user-name"></span>！</h2>
       <p>你的課程進度：<span id="progress"></span></p>
-      <p>下堂課：<span id="date list"></span></p>
+      <p>下堂課：<span id="dateList"></span></p>
       <p>請檢查所有功課已經完成改正</p>
       <button onclick="logout()">登出</button>
     </div>
   </div>
 
   <script>
-    // 每個帳號 對應 不同名字 + 不同進度
+    // 每個帳號 對應 不同名字 + 不同進度 + 不同上堂時間
     const allowedAccounts = [
       { 
         email: "testing", 
         password: "123456", 
         name: "SB",
-        progress: "中文生字仲有七個未背熟"
+        progress: "中文生字仲有七個未背熟",
+        dateList: "28/2 星期六 9AM"
       },
       { 
         email: "wonghtholden@gmail.com", 
         password: "123456", 
         name: "Holden",
-        progress: "英文單詞已全部掌握"
-        date list: "28/2 星期六 9AM"
+        progress: "英文單詞已全部掌握",
+        dateList: "28/2 星期六 9AM"
       },
       { 
         email: "carlostang921@gmail.com", 
         password: "11111", 
         name: "Carlos",
-        progress: "數學練習每日五題未完成"
-        date list: "28/2 星期六 11AM"
+        progress: "數學練習每日五題未完成",
+        dateList: "28/2 星期六 11AM"
       },
       { 
         email: "terrihui@gmail.com", 
         password: "terri106", 
         name: "Terri",
-        progress: "你仲有大把嘢未處理"
+        progress: "你仲有大把嘢未處理",
+        dateList: "暫時未有新堂"
       }
     ];
 
@@ -164,9 +166,10 @@
       );
 
       if (user) {
-        // 自動根據帳號顯示 不同名字 + 不同進度
+        // 自動根據帳號顯示 不同內容
         document.getElementById("user-name").textContent = user.name;
         document.getElementById("progress").textContent = user.progress;
+        document.getElementById("dateList").textContent = user.dateList;
         
         document.getElementById('login-section').style.display = 'none';
         document.getElementById('dashboard').style.display = 'block';
