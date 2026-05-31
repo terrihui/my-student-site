@@ -1,332 +1,121 @@
 <!DOCTYPE html>
-<html lang="zh-HK" class="scroll-smooth">
+<html lang="zh-HK">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BenShine Education ｜ Ben仔網校</title>
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Font Awesome 6 (最新圖標庫) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts 引入優美字體 -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+HK:wght@400;500;700&display=swap" rel="stylesheet">
-    
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: '#F9A826',    /* 活力橙 */
-                        secondary: '#2563EB',  /* 專業藍 */
-                        dark: '#1E293B',       /* 深藍灰 */
-                        lightBg: '#F8FAFC'     /* 淺灰底 */
-                    },
-                    fontFamily: {
-                        sans: ['Noto Sans HK', 'sans-serif']
-                    }
-                }
-            }
+    <title>Benshine Education | 本善教育</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
         }
-    </script>
+        header {
+            background: linear-gradient(135deg, #4a90e2, #1565c0);
+            color: white;
+            text-align: center;
+            padding: 80px 20px;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 { font-size: 2.8em; margin: 0; }
+        h2 { color: #1565c0; border-bottom: 3px solid #4a90e2; padding-bottom: 10px; }
+        .section { margin: 60px 0; }
+        .advantages {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .contact {
+            background: #e3f2fd;
+            padding: 40px;
+            border-radius: 12px;
+            text-align: center;
+        }
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 30px;
+            margin-top: 50px;
+        }
+    </style>
 </head>
-<body class="bg-lightBg text-gray-800 font-sans antialiased">
+<body>
 
-    <!-- 頂部導航欄 -->
-    <header class="fixed w-full bg-white/95 backdrop-blur shadow-sm z-50 transition-all duration-300">
-        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-            <!-- Logo 區塊 -->
-            <div class="flex items-center gap-3">
-                <!-- 測試 Logo 位置 (暫時用圖標，未來可換成 img 標籤) -->
-                <div class="w-10 h-10 rounded-full bg-secondary flex items-center justify-center text-white font-bold text-lg shadow-sm">
-                    B
-                </div>
-                <div>
-                    <span class="text-xl font-bold text-secondary tracking-wide block">BenShine Education</span>
-                    <span class="text-xs text-gray-500 block -mt-1">Ben仔網校</span>
-                </div>
-            </div>
-            
-            <!-- 電腦版導航 -->
-            <nav class="hidden md:flex items-center gap-8 font-medium">
-                <a href="#home" class="text-gray-600 hover:text-secondary transition">首頁</a>
-                <a href="#courses" class="text-gray-600 hover:text-secondary transition">精選課程</a>
-                <a href="#about" class="text-gray-600 hover:text-secondary transition">教學理念</a>
-                <a href="#news" class="text-gray-600 hover:text-secondary transition">最新消息</a>
-                <a href="#faq" class="text-gray-600 hover:text-secondary transition">常見問題</a>
-                <a href="#contact" class="bg-secondary text-white px-5 py-2 rounded-full hover:bg-blue-700 transition shadow-md shadow-blue-100">聯絡我們</a>
-            </nav>
-
-            <!-- 手機版漢堡包按鈕 -->
-            <button id="menu-btn" class="block md:hidden text-gray-600 focus:outline-none" aria-label="Toggle Menu">
-                <i class="fa-solid fa-bars text-2xl"></i>
-            </button>
-        </div>
-
-        <!-- 手機版下拉選單 -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 px-4 py-4 space-y-3 shadow-inner">
-            <a href="#home" onclick="toggleMenu()" class="block text-gray-600 hover:text-secondary py-2 font-medium">首頁</a>
-            <a href="#courses" onclick="toggleMenu()" class="block text-gray-600 hover:text-secondary py-2 font-medium">精選課程</a>
-            <a href="#about" onclick="toggleMenu()" class="block text-gray-600 hover:text-secondary py-2 font-medium">教學理念</a>
-            <a href="#news" onclick="toggleMenu()" class="block text-gray-600 hover:text-secondary py-2 font-medium">最新消息</a>
-            <a href="#faq" onclick="toggleMenu()" class="block text-gray-600 hover:text-secondary py-2 font-medium">常見問題</a>
-            <a href="#contact" onclick="toggleMenu()" class="block bg-secondary text-white text-center px-4 py-2 rounded-lg font-medium">聯絡我們</a>
-        </div>
+    <header>
+        <h1>本善教育</h1>
+        <p style="font-size:1.4em; margin-top:15px;">我們是導孩子向善的引路者</p>
     </header>
 
-    <!-- 主體內容 -->
-    <main class="pt-16">
-        
-        <!-- 1. 首頁 Banner 區 -->
-        <section id="home" class="relative overflow-hidden bg-gradient-to-br from-blue-600 to-indigo-700 text-white py-24 md:py-32 px-4">
-            <!-- 裝飾背景圈圈 -->
-            <div class="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl -mr-20 -mt-20"></div>
-            <div class="absolute bottom-0 left-0 w-80 h-80 bg-primary/20 rounded-full blur-2xl -ml-20 -mb-20"></div>
-            
-            <div class="container mx-auto max-w-5xl text-center relative z-10">
-                <span class="inline-block bg-white/20 backdrop-blur text-sm font-semibold tracking-wider uppercase px-4 py-1.5 rounded-full mb-6">
-                    🚀 啟發下一代的創新思維
-                </span>
-                <h1 class="text-4xl md:text-6xl font-extrabold mb-6 tracking-tight leading-tight">
-                    Ben仔網校 ｜ STEAM 趣味教育
-                </h1>
-                <p class="text-lg md:text-xl text-blue-100 max-w-2xl mx-auto mb-10 leading-relaxed">
-                    透過動手做的「體驗式學習」，解鎖小朋友的無限潛能。結合科學實驗與機械模型，等學習變得好玩又有意義！
-                </p>
-                <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <a href="#contact" class="bg-primary text-dark font-bold px-8 py-4 rounded-xl shadow-lg hover:bg-amber-500 transition duration-300 text-center">
-                        立即諮詢 / 預約試堂
-                    </a>
-                    <a href="#courses" class="bg-white/10 text-white border border-white/20 font-medium px-8 py-4 rounded-xl hover:bg-white/20 transition duration-300 text-center">
-                        瀏覽課程
-                    </a>
-                </div>
-            </div>
-        </section>
+    <div class="container">
 
-        <!-- 2. 精選課程區塊 -->
-        <section id="courses" class="py-20 bg-white">
-            <div class="container mx-auto px-4 max-w-6xl">
-                <div class="text-center max-w-2xl mx-auto mb-16">
-                    <h2 class="text-3xl md:text-4xl font-bold text-dark mb-4">核心精選課程</h2>
-                    <div class="w-16 h-1 bg-primary mx-auto mb-4"></div>
-                    <p class="text-gray-500">精心設計的階梯式課程，藍色技工衫 Ben 仔帶領，讓孩子在遊戲與組裝中掌握真實知識。</p>
-                </div>
-                
-                <div class="grid md:grid-cols-3 gap-8">
-                    <!-- 卡片 1 -->
-                    <div class="group bg-lightBg rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition duration-300 transform hover:-translate-y-1">
-                        <div class="relative overflow-hidden h-48 bg-gray-200">
-                            <!-- ⚠️ 測試圖片：科學實驗 (配對時請替換下方 src) -->
-                            <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=600&q=80" alt="科學實驗班" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                        </div>
-                        <div class="p-6">
-                            <span class="text-xs font-bold text-secondary tracking-wide uppercase">探究與發現</span>
-                            <h3 class="font-bold text-xl text-dark mt-1 mb-2">科學實驗班</h3>
-                            <p class="text-gray-600 text-sm leading-relaxed">動手做安全又有趣的科學實驗，親眼見證化學與物理反應，從小建立嚴謹的科學邏輯與好奇心。</p>
-                        </div>
-                    </div>
-                    
-                    <!-- 卡片 2 -->
-                    <div class="group bg-lightBg rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition duration-300 transform hover:-translate-y-1">
-                        <div class="relative overflow-hidden h-48 bg-gray-200">
-                            <!-- ⚠️ 測試圖片：機械模型 (配對時請替換下方 src) -->
-                            <img src="https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=600&q=80" alt="機械模型課" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                        </div>
-                        <div class="p-6">
-                            <span class="text-xs font-bold text-green-600 tracking-wide uppercase">動手能力</span>
-                            <h3 class="font-bold text-xl text-dark mt-1 mb-2">機械模型與結構課</h3>
-                            <p class="text-gray-600 text-sm leading-relaxed">由藍色技工衫 Ben 仔親自帶領，拆解汽車、齒輪與機械臂結構，砌車兼學工程知識，鍛鍊立體空間思維。</p>
-                        </div>
-                    </div>
-                    
-                    <!-- 卡片 3 -->
-                    <div class="group bg-lightBg rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition duration-300 transform hover:-translate-y-1">
-                        <div class="relative overflow-hidden h-48 bg-gray-200">
-                            <!-- ⚠️ 測試圖片：兒童編程 (配對時請替換下方 src) -->
-                            <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=600&q=80" alt="兒童編程班" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                        </div>
-                        <div class="p-6">
-                            <span class="text-xs font-bold text-purple-600 tracking-wide uppercase">數碼素養</span>
-                            <h3 class="font-bold text-xl text-dark mt-1 mb-2">兒童圖形化編程班</h3>
-                            <p class="text-gray-600 text-sm leading-relaxed">採用 Scratch 等圖形化積木編程工具，拒絕枯燥代碼，以生動故事和遊戲創作引導孩子入門 IT 世界。</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 3. 教學理念 / 品牌故事 -->
-        <section id="about" class="py-20 bg-lightBg">
-            <div class="container mx-auto px-4 max-w-6xl">
-                <div class="grid md:grid-cols-2 gap-12 items-center">
-                    <div class="relative">
-                        <div class="absolute inset-0 bg-primary/10 transform translate-x-4 translate-y-4 rounded-2xl"></div>
-                        <!-- ⚠️ 測試圖片：教學理念/品牌故事 (配對時請替換下方 src) -->
-                        <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=800&q=80" alt="教學現場" class="relative z-10 rounded-2xl shadow-md w-full object-cover h-80 md:h-96">
-                    </div>
-                    <div>
-                        <span class="text-sm font-bold text-secondary uppercase tracking-wider">About BenShine</span>
-                        <h2 class="text-3xl font-bold text-dark mt-2 mb-6">關於 Ben仔網校 與 教學理念</h2>
-                        <p class="text-gray-600 leading-relaxed mb-4">
-                            Ben仔網校 (BenShine Education) 專注於為中小學生提供高質素的 STEAM 教育解決方案。我們深信「死記硬背」的時代已經過去，未來的核心競爭力在於解決問題的能力與創新思維。
-                        </p>
-                        <p class="text-gray-600 leading-relaxed mb-6">
-                            我們的專屬品牌 IP 「Ben仔」以親切、專業的技工形象陪伴學生成長，將繁複的科學、技術、工程及數學原理，融入好玩、安全且具啟發性的實作項目中，打造最具溫度的線上學習環境。
-                        </p>
-                        <div class="grid grid-cols-2 gap-4">
-                            <div class="bg-white p-4 rounded-xl border border-gray-100 shadow-sm">
-                                <h4 class="font-bold text-secondary mb-1">⭐️ 100% 動手實作</h4>
-                                <p class="text-xs text-gray-500">拒絕純理論，每堂課都有成品帶回家或線上展示。</p>
-                            </div>
-                            <div class="bg-white p-4 rounded-xl border border-gray-100 shadow-sm">
-                                <h4 class="font-bold text-secondary mb-1">🤖 系統化梯級課程</h4>
-                                <p class="text-xs text-gray-500">因材施教，配合學校大綱及未來科技發展。</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 4. 最新公告 -->
-        <section id="news" class="py-20 bg-white">
-            <div class="container mx-auto px-4 max-w-4xl">
-                <div class="text-center mb-12">
-                    <h2 class="text-3xl font-bold text-dark mb-4">最新消息與公告</h2>
-                    <div class="w-16 h-1 bg-primary mx-auto"></div>
-                </div>
-                
-                <div class="space-y-6">
-                    <!-- 公告 1 -->
-                    <div class="p-6 bg-lightBg rounded-xl border border-gray-100 flex flex-col sm:flex-row gap-6 items-start hover:border-blue-200 transition">
-                        <span class="bg-secondary text-white text-xs font-bold px-3 py-1 rounded whitespace-nowrap mt-1">最新活動</span>
-                        <div>
-                            <h3 class="text-lg font-bold text-dark mb-2">2026 暑期高效 STEAM 實驗營開始接受預約！</h3>
-                            <p class="text-gray-600 text-sm leading-relaxed mb-2">全面涵蓋物理力學、簡易編程與趣味化學，早鳥報名更可獲贈精美機械模型工具包一套。名額有限，請即向我們查詢。</p>
-                            <span class="text-xs text-gray-400"><i class="fa-regular fa-calendar-days mr-1"></i> 2026-06-01</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 5. 常見問題 (FAQ) -->
-        <section id="faq" class="py-20 bg-lightBg">
-            <div class="container mx-auto px-4 max-w-3xl">
-                <div class="text-center mb-12">
-                    <h2 class="text-3xl font-bold text-dark mb-4">常見問題 FAQ</h2>
-                    <div class="w-16 h-1 bg-primary mx-auto"></div>
-                </div>
-                <div class="space-y-4">
-                    <div class="bg-white p-5 rounded-xl shadow-sm">
-                        <h4 class="font-bold text-dark mb-2">Q1：網校課程如何進行？需要準備甚麼器材？</h4>
-                        <p class="text-gray-600 text-sm">我們的課程採用線上互動教學，報名成功後，我們會將專屬的課程材料包/材料盒直接快遞到您家中。上堂時只需預備一部平板電腦或電腦即可輕鬆學習。</p>
-                    </div>
-                    <div class="bg-white p-5 rounded-xl shadow-sm">
-                        <h4 class="font-bold text-dark mb-2">Q2：課程適合幾多歲的小朋友參加？</h4>
-                        <p class="text-gray-600 text-sm">我們針對不同年齡段設有對應的班別：科學實驗班適合 6-9 歲；機械模型與編程班則適合 8-14 歲。導師會根據學生的理解能力調整授課進度。</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 6. 聯絡我們與資訊 -->
-        <section id="contact" class="py-20 bg-white border-t border-gray-100">
-            <div class="container mx-auto px-4 max-w-5xl">
-                <div class="text-center mb-16">
-                    <h2 class="text-3xl md:text-4xl font-bold text-dark mb-4">聯絡我們</h2>
-                    <p class="text-gray-500">歡迎隨時查詢課程時間、學費詳情或合作提案，我們會盡快回覆您。</p>
-                </div>
-                
-                <div class="grid md:grid-cols-5 gap-8 items-start">
-                    <!-- 表單欄位 -->
-                    <div class="md:col-span-3 bg-lightBg p-8 rounded-2xl border border-gray-100">
-                        <h3 class="text-xl font-bold text-dark mb-6">發送在線查詢</h3>
-                        <form action="https://formspree.io/f/your-form-id" method="POST" class="space-y-4">
-                            <div>
-                                <label class="block text-xs font-bold text-gray-600 uppercase mb-1">家長姓名 / 聯絡人</label>
-                                <input type="text" name="name" required placeholder="例如：陳先生 / Ms. Wong" class="w-full p-3 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-secondary transition">
-                            </div>
-                            <div>
-                                <label class="block text-xs font-bold text-gray-600 uppercase mb-1">電子郵件</label>
-                                <input type="email" name="email" required placeholder="example@email.com" class="w-full p-3 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-secondary transition">
-                            </div>
-                            <div>
-                                <label class="block text-xs font-bold text-gray-600 uppercase mb-1">查詢內容 / 小朋友年齡</label>
-                                <textarea name="message" rows="4" required placeholder="請寫下你想查詢的課程或問題..." class="w-full p-3 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-secondary transition"></textarea>
-                            </div>
-                            <button type="submit" class="w-full bg-secondary text-white font-medium px-6 py-3 rounded-xl hover:bg-blue-700 transition shadow-md shadow-blue-100">
-                                提交表單
-                            </button>
-                        </form>
-                    </div>
-                    
-                    <!-- 聯絡資訊 -->
-                    <div class="md:col-span-2 space-y-6">
-                        <div class="bg-blue-50/50 p-6 rounded-2xl border border-blue-100/50">
-                            <h3 class="text-lg font-bold text-dark mb-4">聯絡資訊</h3>
-                            <div class="space-y-4 text-gray-700">
-                                <div class="flex items-center gap-3">
-                                    <div class="w-10 h-10 rounded-lg bg-green-500 text-white flex items-center justify-center text-lg shadow-sm">
-                                        <i class="fa-brands fa-whatsapp"></i>
-                                    </div>
-                                    <div>
-                                        <span class="block text-xs text-gray-400 font-medium">WhatsApp 專線</span>
-                                        <a href="https://wa.me/85295671228" target="_blank" class="font-bold text-green-600 hover:underline">9567 1228</a>
-                                    </div>
-                                </div>
-                                <div class="flex items-center gap-3">
-                                    <div class="w-10 h-10 rounded-lg bg-secondary text-white flex items-center justify-center text-lg shadow-sm">
-                                        <i class="fa-solid fa-phone"></i>
-                                    </div>
-                                    <div>
-                                        <span class="block text-xs text-gray-400 font-medium">公司電話</span>
-                                        <span class="font-bold text-dark">9567 1228 / 6338 1935</span>
-                                    </div>
-                                </div>
-                                <div class="flex items-start gap-3">
-                                    <div class="w-10 h-10 rounded-lg bg-gray-600 text-white flex items-center justify-center text-lg shadow-sm shrink-0">
-                                        <i class="fa-solid fa-location-dot"></i>
-                                    </div>
-                                    <div>
-                                        <span class="block text-xs text-gray-400 font-medium">辦公地址 (跟 BR 商業登記)</span>
-                                        <span class="text-sm font-medium text-dark leading-relaxed">香港XX區XX商業大廈XX室</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- 提示 -->
-                        <div class="p-5 bg-amber-50 rounded-xl border border-amber-100 text-amber-800 text-xs leading-relaxed flex gap-2">
-                            <i class="fa-solid fa-circle-info text-base mt-0.5 text-amber-500 shrink-0"></i>
-                            <span>提示：在線諮詢時間為星期一至五 09:00 - 18:00。公眾假期除外。家長亦可隨時透過 WhatsApp 留低口訊。</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- 頁腳 -->
-    <footer class="bg-dark text-gray-400 py-12 border-t border-gray-800">
-        <div class="container mx-auto px-4 max-w-5xl text-center space-y-3">
-            <p class="text-white font-medium">BenShine Education ｜ Ben仔網校</p>
-            <p class="text-xs">© 2026 BenShine Education. All Rights Reserved. 版權所有。</p>
+        <div class="section">
+            <h2>關於我們</h2>
+            <p>本善教育扎根元朗，致力為本地及新來港學生提供優質補習服務。我們不單止教書，更重視品格培養同全面發展。</p>
         </div>
+
+        <div class="section">
+            <h2>我們的優勢</h2>
+            <div class="advantages">
+                <div class="card">
+                    <h3>01 專科拔尖</h3>
+                    <p>針對中英數等核心科目深度教學，幫助學生突破學習瓶頸。</p>
+                </div>
+                <div class="card">
+                    <h3>02 新來港支援</h3>
+                    <p>專為新來港學生設計中英數補底課程，由基礎建立學習信心。</p>
+                </div>
+                <div class="card">
+                    <h3>03 STEAM課程</h3>
+                    <p>跨學科教學，激發創新思維同實踐能力。</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>我們的課程</h2>
+            <h3>小學課程</h3>
+            <ul>
+                <li>☀️ 功課輔導班</li>
+                <li>☀️ 中文專科班</li>
+                <li>☀️ 英文專科班</li>
+                <li>☀️ 數學專科班</li>
+                <li>☀️ 課後託管班</li>
+            </ul>
+
+            <h3>中學課程</h3>
+            <ul>
+                <li>☀️ 中文拔尖/補底班</li>
+                <li>☀️ 英文拔尖/補底班</li>
+                <li>☀️ 數學拔尖/補底班</li>
+            </ul>
+        </div>
+
+        <div class="section contact">
+            <h2>聯絡我們</h2>
+            <p><strong>📍 地址：</strong> 元朗民合徑8號幸福樓17室閣樓B室</p>
+            <p><strong>📞 電話：</strong> 9567 1318</p>
+            <p><strong>✉️ 電郵：</strong> benshineeducation@gmail.com</p>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>© 2026 Benshine Education 本善教育 | 元朗補習中心</p>
     </footer>
 
-    <!-- JavaScript -->
-    <script>
-        const menuBtn = document.getElementById('menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-
-        function toggleMenu() {
-            mobileMenu.classList.toggle('hidden');
-        }
-
-        menuBtn.addEventListener('click', toggleMenu);
-    </script>
 </body>
 </html>
