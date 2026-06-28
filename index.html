@@ -35,7 +35,6 @@
   a{color:inherit;}
   img{max-width:100%; display:block;}
 
-  /* Skip link for accessibility */
   .skip-link{
     position:absolute; left:-999px; top:0;
     background:var(--pine); color:#fff; padding:8px 16px; z-index:2000;
@@ -47,7 +46,6 @@
     outline-offset:2px;
   }
 
-  /* Header */
   header{
     position:sticky; top:0; z-index:1000;
     background:rgba(250,246,239,0.92);
@@ -82,7 +80,6 @@
   .nav-cta:hover{ background:var(--pine-light); }
   .menu-toggle{ display:none; background:none; border:none; font-size:26px; color:var(--pine); cursor:pointer; }
 
-  /* Hero */
   .hero{
     position:relative;
     min-height:78vh;
@@ -94,7 +91,6 @@
     color:#FAF6EF;
   }
   .hero::before{
-    /* subtle "path of light" motif — a sun-arc echoing the ☀️ course markers */
     content:'';
     position:absolute; right:-10%; top:-20%;
     width:600px; height:600px;
@@ -119,290 +115,4 @@
   }
   .hero h1{
     font-size:clamp(34px, 5vw, 56px);
-    line-height:1.3; margin:0 0 14px; font-weight:700;
-    max-width:680px;
-  }
-  .hero .sub{
-    font-size:clamp(16px, 2vw, 19px);
-    color:rgba(250,246,239,0.82);
-    max-width:520px; margin:0 0 36px;
-  }
-  .hero-ctas{ display:flex; gap:16px; flex-wrap:wrap; }
-  .btn{
-    display:inline-block; text-decoration:none; font-weight:700;
-    padding:14px 30px; border-radius:999px; font-size:15px;
-    transition:transform 0.2s ease, background 0.2s ease;
-  }
-  .btn-primary{ background:var(--amber); color:#1F2017; }
-  .btn-primary:hover{ background:#E6A05F; transform:translateY(-2px); }
-  .btn-ghost{ border:1px solid rgba(250,246,239,0.4); color:#FAF6EF; }
-  .btn-ghost:hover{ border-color:#FAF6EF; transform:translateY(-2px); }
-
-  /* Sections */
-  .section{ padding:88px 24px; max-width:var(--max); margin:0 auto; }
-  .section-head{ max-width:640px; margin:0 0 48px; }
-  .section-head .eyebrow{ color:var(--amber-deep); }
-  .section-head h2{
-    font-size:clamp(26px,3vw,36px); color:var(--pine); margin:0 0 14px; font-weight:700;
-  }
-  .section-head p{ color:var(--brown); font-size:16px; margin:0; }
-  .alt{ background:var(--bg-alt); }
-
-  /* About */
-  .about-grid{
-    display:grid; grid-template-columns: 1.1fr 0.9fr; gap:56px; align-items:start;
-  }
-  .about-quote{
-    font-family:'Noto Serif TC', serif;
-    font-size:clamp(22px,2.6vw,30px);
-    color:var(--pine); font-weight:700; line-height:1.6;
-    border-left:3px solid var(--amber); padding-left:24px;
-    margin:0 0 24px;
-  }
-  .about-grid p{ color:#444; font-size:16px; }
-  .pillars{ display:flex; flex-direction:column; gap:28px; }
-  .pillar{
-    display:flex; gap:18px; align-items:flex-start;
-    padding-bottom:24px; border-bottom:1px solid var(--line);
-  }
-  .pillar:last-child{ border-bottom:none; padding-bottom:0; }
-  .pillar-mark{
-    font-family:'Noto Serif TC', serif; font-weight:900; font-size:15px;
-    color:var(--amber-deep); width:34px; height:34px; flex-shrink:0;
-    border:1px solid var(--amber-deep); border-radius:50%;
-    display:flex; align-items:center; justify-content:center;
-  }
-  .pillar h3{ margin:0 0 6px; font-size:17px; color:var(--pine); }
-  .pillar p{ margin:0; font-size:15px; color:var(--brown); }
-
-  /* Courses */
-  .course-tabs{ display:flex; gap:12px; margin-bottom:36px; flex-wrap:wrap; }
-  .course-tab{
-    font-family:'Noto Sans TC', sans-serif; font-weight:700; font-size:15px;
-    background:none; border:1px solid var(--line); color:var(--brown);
-    padding:10px 22px; border-radius:999px; cursor:pointer;
-  }
-  .course-tab[aria-selected="true"]{
-    background:var(--pine); color:#fff; border-color:var(--pine);
-  }
-  .course-panel{ display:none; }
-  .course-panel.active{ display:block; }
-  .course-list{
-    display:grid; grid-template-columns:repeat(auto-fit, minmax(240px,1fr));
-    gap:18px;
-  }
-  .course-item{
-    background:#fff; border:1px solid var(--line); border-radius:14px;
-    padding:24px 22px; display:flex; gap:14px; align-items:flex-start;
-  }
-  .course-item .mark{ font-size:20px; line-height:1; }
-  .course-item h3{ margin:0 0 4px; font-size:16px; color:var(--ink); font-weight:700; }
-  .course-item p{ margin:0; font-size:14px; color:var(--brown); }
-
-  /* Contact */
-  .contact-wrap{
-    background:var(--pine); color:#FAF6EF; border-radius:24px;
-    padding:56px 48px; display:grid; grid-template-columns: 1fr 1fr; gap:48px;
-  }
-  .contact-wrap h2{ color:#fff; font-size:clamp(24px,3vw,32px); margin:0 0 14px; }
-  .contact-wrap > div:first-child p{ color:rgba(250,246,239,0.78); font-size:15px; max-width:380px; }
-  .contact-list{ list-style:none; margin:28px 0 0; padding:0; display:flex; flex-direction:column; gap:18px; }
-  .contact-list li{ display:flex; gap:14px; align-items:flex-start; font-size:15px; }
-  .contact-list .ic{ font-size:18px; line-height:1.4; }
-  .contact-list a{ text-decoration:none; color:#FAF6EF; }
-  .contact-list a:hover{ color:var(--amber); }
-  .contact-form{ background:rgba(250,246,239,0.06); border-radius:16px; padding:28px; }
-  .contact-form label{ display:block; font-size:13px; margin-bottom:6px; color:rgba(250,246,239,0.75); }
-  .contact-form input, .contact-form textarea{
-    width:100%; padding:11px 14px; margin-bottom:16px; border-radius:8px;
-    border:1px solid rgba(250,246,239,0.25); background:rgba(250,246,239,0.08);
-    color:#fff; font-family:inherit; font-size:14px;
-  }
-  .contact-form input::placeholder, .contact-form textarea::placeholder{ color:rgba(250,246,239,0.45); }
-  .contact-form button{
-    background:var(--amber); color:#1F2017; border:none; font-weight:700;
-    padding:13px 28px; border-radius:999px; font-size:15px; cursor:pointer; width:100%;
-  }
-  .contact-form button:hover{ background:#E6A05F; }
-  .form-note{ font-size:12px; color:rgba(250,246,239,0.55); margin-top:-6px; }
-
-  footer{
-    text-align:center; padding:32px 24px; color:var(--brown); font-size:13px;
-  }
-
-  @media (max-width: 860px){
-    nav{ position:fixed; top:0; right:0; height:100vh; width:78%; max-width:300px;
-      background:var(--bg); flex-direction:column; align-items:flex-start;
-      padding:90px 28px 28px; gap:24px; transform:translateX(100%); transition:transform 0.3s ease;
-      box-shadow:-8px 0 24px rgba(0,0,0,0.08);
-    }
-    nav.open{ transform:translateX(0); }
-    .menu-toggle{ display:block; }
-    .about-grid{ grid-template-columns:1fr; }
-    .contact-wrap{ grid-template-columns:1fr; padding:36px 26px; border-radius:18px; }
-  }
-  @media (prefers-reduced-motion: reduce){
-    html{ scroll-behavior:auto; }
-    *{ transition:none !important; }
-  }
-</style>
-</head>
-<body>
-<a href="#main" class="skip-link">跳至主要內容</a>
-
-<header>
-  <div class="nav-container">
-    <a href="#" class="logo">本善<span>教育</span></a>
-    <button class="menu-toggle" aria-label="開啟選單" aria-expanded="false" id="menuToggle">☰</button>
-    <nav id="mainNav">
-      <a href="#about">關於我們</a>
-      <a href="#advantages">我們的優勢</a>
-      <a href="#courses">課程</a>
-      <a href="#contact">聯絡我們</a>
-      <a href="#contact" class="nav-cta">立即查詢</a>
-    </nav>
-  </div>
-</header>
-
-<main id="main">
-  <section class="hero">
-    <div class="hero-inner">
-      <span class="eyebrow">元朗 · 本地教育中心</span>
-      <h1>我們是導孩子向善的引路者</h1>
-      <p class="sub">本善教育扎根元朗，致力為學生提供高品質補習服務 —— 不單止傳授知識，更是孩子成長路上的同行者。</p>
-      <div class="hero-ctas">
-        <a href="#contact" class="btn btn-primary">立即查詢</a>
-        <a href="#courses" class="btn btn-ghost">查看課程</a>
-      </div>
-    </div>
-  </section>
-
-  <section id="about" class="section">
-    <div class="about-grid">
-      <div>
-        <p class="about-quote">「本善教育致力為元朗區學生提供高品質補習服務，更是孩子成長路上的引路者。」</p>
-        <p>透過專業的新來港課程、中英數專科拔尖/補底課程，同多元 STEAM 課程，幫助學生學業進步之餘，亦培養批判思維同創新能力。</p>
-        <p>我們相信，教育唔只係追趕成績，更係建立信心、發掘潛能，陪伴每一位學生找到屬於自己嘅學習節奏。</p>
-      </div>
-      <div class="pillars" id="advantages">
-        <div class="pillar">
-          <span class="pillar-mark">拔</span>
-          <div>
-            <h3>專科拔尖</h3>
-            <p>針對中英數核心科目深入教學，幫助學生突破學習瓶頸。</p>
-          </div>
-        </div>
-        <div class="pillar">
-          <span class="pillar-mark">新</span>
-          <div>
-            <h3>新來港支援</h3>
-            <p>專為新來港學生設計嘅中英數補底課程，由基礎開始建立學習信心。</p>
-          </div>
-        </div>
-        <div class="pillar">
-          <span class="pillar-mark">創</span>
-          <div>
-            <h3>STEAM 課程</h3>
-            <p>結合科學、技術、工程、藝術同數學，激發創新思維同實踐能力。</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="courses" class="section alt">
-    <div class="section-head">
-      <span class="eyebrow">課程設置</span>
-      <h2>我們的課程</h2>
-      <p>由小學基礎到中學拔尖，按學生階段提供合適課程。</p>
-    </div>
-
-    <div class="course-tabs" role="tablist" aria-label="課程階段">
-      <button class="course-tab" role="tab" aria-selected="true" aria-controls="primary-panel" id="primary-tab">小學課程</button>
-      <button class="course-tab" role="tab" aria-selected="false" aria-controls="secondary-panel" id="secondary-tab">中學課程</button>
-    </div>
-
-    <div class="course-panel active" id="primary-panel" role="tabpanel" aria-labelledby="primary-tab">
-      <div class="course-list">
-        <div class="course-item"><span class="mark">☀️</span><div><h3>功課輔導班</h3><p>每日跟進學校功課，建立良好學習習慣。</p></div></div>
-        <div class="course-item"><span class="mark">☀️</span><div><h3>中文專科班</h3><p>閱讀理解、寫作技巧同步提升。</p></div></div>
-        <div class="course-item"><span class="mark">☀️</span><div><h3>英文專科班</h3><p>聽說讀寫全面訓練，打好英文基礎。</p></div></div>
-        <div class="course-item"><span class="mark">☀️</span><div><h3>數學專科班</h3><p>概念講解配合練習，鞏固數學思維。</p></div></div>
-        <div class="course-item"><span class="mark">☀️</span><div><h3>課後託管班</h3><p>放學後安心託管，兼顧功課與休息。</p></div></div>
-      </div>
-    </div>
-
-    <div class="course-panel" id="secondary-panel" role="tabpanel" aria-labelledby="secondary-tab">
-      <div class="course-list">
-        <div class="course-item"><span class="mark">☀️</span><div><h3>中文拔尖/補底班</h3><p>因應學生程度，拔尖或補底雙軌教學。</p></div></div>
-        <div class="course-item"><span class="mark">☀️</span><div><h3>英文拔尖/補底班</h3><p>針對考試技巧及語言能力同步加強。</p></div></div>
-        <div class="course-item"><span class="mark">☀️</span><div><h3>數學拔尖/補底班</h3><p>由基礎到深化題型，循序漸進突破難點。</p></div></div>
-      </div>
-    </div>
-  </section>
-
-  <section id="contact" class="section">
-    <div class="contact-wrap">
-      <div>
-        <h2>聯絡我們</h2>
-        <p>歡迎致電、WhatsApp 或電郵查詢課程詳情及報名安排。</p>
-        <ul class="contact-list">
-          <li><span class="ic">📍</span><span>元朗民合徑8號幸福樓17室閣樓B室</span></li>
-          <li><span class="ic">📞</span><a href="tel:+85295671318">9567 1318</a></li>
-          <li><span class="ic">✉️</span><a href="mailto:benshineeducation@gmail.com">benshineeducation@gmail.com</a></li>
-        </ul>
-      </div>
-      <form class="contact-form" id="inquiryForm">
-        <label for="name">姓名</label>
-        <input type="text" id="name" name="name" placeholder="請輸入姓名" required>
-        <label for="phone">電話</label>
-        <input type="tel" id="phone" name="phone" placeholder="請輸入聯絡電話" required>
-        <label for="message">查詢內容</label>
-        <textarea id="message" name="message" rows="3" placeholder="想了解的課程或問題"></textarea>
-        <button type="submit">提交查詢</button>
-        <p class="form-note">提交後我們將盡快與你聯絡。</p>
-      </form>
-    </div>
-  </section>
-</main>
-
-<footer>
-  &copy; 2026 本善教育 Benshine Education. All Rights Reserved.
-</footer>
-
-<script>
-  // Mobile nav toggle
-  const toggle = document.getElementById('menuToggle');
-  const nav = document.getElementById('mainNav');
-  toggle.addEventListener('click', () => {
-    const isOpen = nav.classList.toggle('open');
-    toggle.setAttribute('aria-expanded', isOpen);
-  });
-  nav.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-      nav.classList.remove('open');
-      toggle.setAttribute('aria-expanded', 'false');
-    });
-  });
-
-  // Course tabs
-  const tabs = document.querySelectorAll('.course-tab');
-  const panels = { 'primary-tab': 'primary-panel', 'secondary-tab': 'secondary-panel' };
-  tabs.forEach(tab => {
-    tab.addEventListener('click', () => {
-      tabs.forEach(t => t.setAttribute('aria-selected', 'false'));
-      tab.setAttribute('aria-selected', 'true');
-      Object.values(panels).forEach(id => document.getElementById(id).classList.remove('active'));
-      document.getElementById(panels[tab.id]).classList.add('active');
-    });
-  });
-
-  // Contact form — placeholder handler (no backend yet on GitHub Pages)
-  document.getElementById('inquiryForm').addEventListener('submit', function(e){
-    e.preventDefault();
-    const name = document.getElementById('name').value;
-    alert('多謝 ' + name + ' 的查詢！我們將盡快與你聯絡。\n\n（提示：此表單暫未連接電郵服務，請參考下方聯絡方法直接致電或 WhatsApp。）');
-  });
-</script>
-</body>
-</html>
+    line-height:1.3; margin:0 0 14px; font
