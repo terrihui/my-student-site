@@ -62,7 +62,9 @@
   .logo{
     font-size:22px; font-weight:700; color:var(--pine);
     text-decoration:none; letter-spacing:0.5px;
+    display:flex; align-items:center; gap:10px;
   }
+  .logo img{ height:38px; width:auto; display:block; }
   .logo span{ color:var(--amber-deep); }
   nav{ display:flex; gap:32px; align-items:center; }
   nav a{
@@ -92,8 +94,10 @@
       radial-gradient(circle at 85% 20%, rgba(217,142,74,0.18), transparent 45%),
       linear-gradient(180deg, #233F30 0%, #1B3327 100%);
     color:#FAF6EF;
+    padding:60px 0;
   }
   .hero::before{
+    /* subtle "path of light" motif — a sun-arc echoing the ☀️ course markers */
     content:'';
     position:absolute; right:-10%; top:-20%;
     width:600px; height:600px;
@@ -111,20 +115,41 @@
     position:relative; z-index:2;
     max-width:var(--max); margin:0 auto; padding:0 24px;
     width:100%;
+    display:grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap:40px;
+    align-items:center;
+  }
+  .hero-text{ max-width:560px; }
+  .hero-illustration{
+    position:relative;
+    display:flex; justify-content:center; align-items:center;
+  }
+  .hero-illustration::before{
+    content:'';
+    position:absolute;
+    width:88%; height:88%;
+    border-radius:50%;
+    background:radial-gradient(circle, rgba(217,142,74,0.22), transparent 72%);
+  }
+  .hero-illustration img{
+    position:relative; z-index:1;
+    width:100%; max-width:420px;
+    /* image already has a near-white background; this gently blends its edges into the dark hero */
+    filter:drop-shadow(0 20px 30px rgba(0,0,0,0.35));
   }
   .eyebrow{
     display:inline-block; font-size:14px; letter-spacing:3px;
     color:var(--amber); margin-bottom:18px; font-weight:500;
   }
   .hero h1{
-    font-size:clamp(34px, 5vw, 56px);
+    font-size:clamp(30px, 4.2vw, 50px);
     line-height:1.3; margin:0 0 14px; font-weight:700;
-    max-width:680px;
   }
   .hero .sub{
     font-size:clamp(16px, 2vw, 19px);
     color:rgba(250,246,239,0.82);
-    max-width:520px; margin:0 0 36px;
+    margin:0 0 36px;
   }
   .hero-ctas{ display:flex; gap:16px; flex-wrap:wrap; }
   .btn{
@@ -159,6 +184,14 @@
     margin:0 0 24px;
   }
   .about-grid p{ color:#444; font-size:16px; }
+  // PHOTO SPOT 2 — About section photo (optional)
+  // Recommended size: roughly 800x1000px (portrait) or 800x600px (landscape), JPG ~100-200KB
+  // If you add a photo in the About section HTML (see comment further down in the body),
+  // this class styles it:
+  .about-photo{
+    width:100%; border-radius:16px; margin-top:28px;
+    box-shadow:0 12px 28px rgba(31,58,46,0.18);
+  }
   .pillars{ display:flex; flex-direction:column; gap:28px; }
   .pillar{
     display:flex; gap:18px; align-items:flex-start;
@@ -226,8 +259,14 @@
   .form-note{ font-size:12px; color:rgba(250,246,239,0.55); margin-top:-6px; }
 
   footer{
-    text-align:center; padding:32px 24px; color:var(--brown); font-size:13px;
+    text-align:center; padding:44px 24px 32px; color:var(--brown); font-size:13px;
   }
+  .footer-logo{ height:48px; width:auto; margin-bottom:14px; }
+  .footer-tagline{
+    font-family:'Noto Serif TC', serif; font-weight:700; font-size:16px;
+    color:var(--pine); margin:0 0 16px;
+  }
+  .footer-copyright{ margin:0; }
 
   @media (max-width: 860px){
     nav{ position:fixed; top:0; right:0; height:100vh; width:78%; max-width:300px;
@@ -237,6 +276,11 @@
     }
     nav.open{ transform:translateX(0); }
     .menu-toggle{ display:block; }
+    .hero-inner{ grid-template-columns:1fr; text-align:center; gap:28px; }
+    .hero-illustration{ order:1; }
+    .hero-text{ order:2; max-width:100%; }
+    .hero-illustration img{ max-width:280px; }
+    .hero-ctas{ justify-content:center; }
     .about-grid{ grid-template-columns:1fr; }
     .contact-wrap{ grid-template-columns:1fr; padding:36px 26px; border-radius:18px; }
   }
@@ -251,7 +295,7 @@
 
 <header>
   <div class="nav-container">
-    <a href="#" class="logo">本善<span>教育</span></a>
+    <a href="#" class="logo"><img src="images/logo.png" alt="本善教育 Logo">本善<span>教育</span></a>
     <button class="menu-toggle" aria-label="開啟選單" aria-expanded="false" id="menuToggle">☰</button>
     <nav id="mainNav">
       <a href="#about">關於我們</a>
@@ -266,12 +310,17 @@
 <main id="main">
   <section class="hero">
     <div class="hero-inner">
-      <span class="eyebrow">元朗 · 本地教育中心</span>
-      <h1>我們是導孩子向善的引路者</h1>
-      <p class="sub">本善教育扎根元朗，致力為學生提供高品質補習服務 —— 不單止傳授知識，更是孩子成長路上的同行者。</p>
-      <div class="hero-ctas">
-        <a href="#contact" class="btn btn-primary">立即查詢</a>
-        <a href="#courses" class="btn btn-ghost">查看課程</a>
+      <div class="hero-text">
+        <span class="eyebrow">元朗 · 本地教育中心</span>
+        <h1>我們是導孩子向善的引路者</h1>
+        <p class="sub">本善教育扎根元朗，致力為學生提供高品質補習服務 —— 不單止傳授知識，更是孩子成長路上的同行者。</p>
+        <div class="hero-ctas">
+          <a href="#contact" class="btn btn-primary">立即查詢</a>
+          <a href="#courses" class="btn btn-ghost">查看課程</a>
+        </div>
+      </div>
+      <div class="hero-illustration">
+        <img src="images/hero-mascots.png" alt="一班可愛的卡通學生角色，戴著畢業帽互相牽手，象徵團結與快樂學習">
       </div>
     </div>
   </section>
@@ -282,6 +331,9 @@
         <p class="about-quote">「本善教育致力為元朗區學生提供高品質補習服務，更是孩子成長路上的引路者。」</p>
         <p>透過專業的新來港課程、中英數專科拔尖/補底課程，同多元 STEAM 課程，幫助學生學業進步之餘，亦培養批判思維同創新能力。</p>
         <p>我們相信，教育唔只係追趕成績，更係建立信心、發掘潛能，陪伴每一位學生找到屬於自己嘅學習節奏。</p>
+        <!-- PHOTO SPOT 2 (optional) — uncomment and update the src path once you've uploaded a photo to an "images" folder
+        <img src="images/about.jpg" alt="本善教育中心" class="about-photo">
+        -->
       </div>
       <div class="pillars" id="advantages">
         <div class="pillar">
@@ -358,15 +410,17 @@
         <input type="tel" id="phone" name="phone" placeholder="請輸入聯絡電話" required>
         <label for="message">查詢內容</label>
         <textarea id="message" name="message" rows="3" placeholder="想了解的課程或問題"></textarea>
-        <button type="submit">提交查詢</button>
-        <p class="form-note">提交後將開啟您的郵件程式發送查詢。</p>
+        <button type="submit">用電郵發送查詢</button>
+        <p class="form-note">按下按鈕將自動開啟你的電郵程式，內容已預先填好。</p>
       </form>
     </div>
   </section>
 </main>
 
 <footer>
-  &copy; 2026 本善教育 Benshine Education. All Rights Reserved.
+  <img src="images/logo.png" alt="本善教育 Logo" class="footer-logo">
+  <p class="footer-tagline">本善教育 —— 引領孩子向善的引路者</p>
+  <p class="footer-copyright">&copy; 2026 本善教育 Benshine Education. All Rights Reserved.</p>
 </footer>
 
 <script>
@@ -396,19 +450,24 @@
     });
   });
 
-  // mailto 郵件提交功能
-  const form = document.getElementById('inquiryForm');
-  form.addEventListener('submit', function(e){
+  // Contact form — builds a mailto: link from the filled-in fields and opens the visitor's email app
+  document.getElementById('inquiryForm').addEventListener('submit', function(e){
     e.preventDefault();
     const name = document.getElementById('name').value.trim();
     const phone = document.getElementById('phone').value.trim();
-    const msg = document.getElementById('message').value.trim();
+    const message = document.getElementById('message').value.trim();
 
-    const subject = encodeURIComponent('本善教育 網站課程查詢 - ' + name);
-    const body = encodeURIComponent(`姓名：${name}\n聯絡電話：${phone}\n查詢內容：\n${msg}`);
-    const mailtoUrl = `mailto:benshineeducation@gmail.com?subject=${subject}&body=${body}`;
+    const subject = '網站查詢 - ' + name;
+    const body =
+      '姓名：' + name + '\n' +
+      '電話：' + phone + '\n' +
+      '查詢內容：' + (message || '（沒有填寫）');
 
-    window.location.href = mailtoUrl;
+    const mailtoLink = 'mailto:benshineeducation@gmail.com'
+      + '?subject=' + encodeURIComponent(subject)
+      + '&body=' + encodeURIComponent(body);
+
+    window.location.href = mailtoLink;
   });
 </script>
 </body>
