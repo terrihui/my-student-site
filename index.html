@@ -94,7 +94,6 @@
     color:#FAF6EF;
   }
   .hero::before{
-    /* subtle "path of light" motif — a sun-arc echoing the ☀️ course markers */
     content:'';
     position:absolute; right:-10%; top:-20%;
     width:600px; height:600px;
@@ -360,7 +359,7 @@
         <label for="message">查詢內容</label>
         <textarea id="message" name="message" rows="3" placeholder="想了解的課程或問題"></textarea>
         <button type="submit">提交查詢</button>
-        <p class="form-note">提交後我們將盡快與你聯絡。</p>
+        <p class="form-note">提交後將開啟您的郵件程式發送查詢。</p>
       </form>
     </div>
   </section>
@@ -397,11 +396,19 @@
     });
   });
 
-  // Contact form — placeholder handler (no backend yet on GitHub Pages)
-  document.getElementById('inquiryForm').addEventListener('submit', function(e){
+  // mailto 郵件提交功能
+  const form = document.getElementById('inquiryForm');
+  form.addEventListener('submit', function(e){
     e.preventDefault();
-    const name = document.getElementById('name').value;
-    alert('多謝 ' + name + ' 的查詢！我們將盡快與你聯絡。\n\n（提示：此表單暫未連接電郵服務，請參考下方聯絡方法直接致電或 WhatsApp。）');
+    const name = document.getElementById('name').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    const msg = document.getElementById('message').value.trim();
+
+    const subject = encodeURIComponent('本善教育 網站課程查詢 - ' + name);
+    const body = encodeURIComponent(`姓名：${name}\n聯絡電話：${phone}\n查詢內容：\n${msg}`);
+    const mailtoUrl = `mailto:benshineeducation@gmail.com?subject=${subject}&body=${body}`;
+
+    window.location.href = mailtoUrl;
   });
 </script>
 </body>
