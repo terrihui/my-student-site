@@ -20,9 +20,9 @@
     --brown: #8B6F47;
     --line: rgba(255, 119, 15, 0.14);
     --max: 1120px;
-    /* 新增表單專用顏色變數 */
-    --form-label-teal: #002FA7; /* 同藍 - 標籤文字 */
-    --form-placeholder-green: #87CEEB; /* 淺藍 - 提示文字 */
+    /* 表單專用顏色變數 */
+    --form-label-black: #111111; /* 標籤黑色 */
+    --form-placeholder-lightgray: #999999; /* 淺灰提示字 */
     --form-btn-blue: #002FA7; /* 按鈕藍色 */
   }
   *{box-sizing:border-box;}
@@ -242,16 +242,16 @@
   .contact-list a{ text-decoration:none; color:#FAF6EF; }
   .contact-list a:hover{ color:var(--amber); }
   .contact-form{ background:rgba(250,246,239,0.06); border-radius:16px; padding:28px; }
-  /* 表單標籤：姓名、電話、查詢內容 青綠色 */
-  .contact-form label{ display:block; font-size:13px; margin-bottom:6px; color:var(--form-label-teal); }
+  /* 表單標籤：黑色清晰文字 */
+  .contact-form label{ display:block; font-size:13px; margin-bottom:6px; color:var(--form-label-black); }
   .contact-form input, .contact-form textarea{
     width:100%; padding:11px 14px; margin-bottom:16px; border-radius:8px;
     border:1px solid rgba(250,246,239,0.25); background:rgba(250,246,239,0.08);
     color:#fff; font-family:inherit; font-size:14px;
   }
-  /* 輸入框提示文字：翠綠色 */
-  .contact-form input::placeholder, .contact-form textarea::placeholder{ color:var(--form-placeholder-green); }
-  /* 提交按鈕 #002FA7 */
+  /* 輸入框提示文字：淺灰色柔和效果 */
+  .contact-form input::placeholder, .contact-form textarea::placeholder{ color:var(--form-placeholder-lightgray); }
+  /* 提交按鈕維持深藍 #002FA7 */
   .contact-form button{
     background:var(--form-btn-blue); color:#fff; border:none; font-weight:700;
     padding:13px 28px; border-radius:999px; font-size:15px; cursor:pointer; width:100%;
